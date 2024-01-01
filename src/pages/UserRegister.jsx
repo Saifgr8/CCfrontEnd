@@ -32,11 +32,15 @@ const UserRegister = () => {
       return;
     }
     try {
-      const { data } = await axios.post("/register", {
-        userName,
-        email,
-        password,
-      });
+      const { data } = await axios.post(
+        "/register",
+        {
+          userName,
+          email,
+          password,
+        },
+        { withCredentials: true }
+      );
       if (data.error) {
         toast.error(data.error);
       } else {

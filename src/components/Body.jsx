@@ -16,7 +16,7 @@ const Body = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("/profile");
+        const response = await axios.get("/profile", { withCredentials: true });
         setUser(response.data);
 
         // Dispatch only if the cart is empty in Redux state

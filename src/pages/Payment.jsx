@@ -47,7 +47,7 @@ const Payment = () => {
   const totalPrice = totalCost(finalCartItems);
 
   const fetchData = async () => {
-    const response = await axios.get("/profile");
+    const response = await axios.get("/profile", { withCredentials: true });
     setUser(response.data);
     dispatch(allCartItems(response?.data?.cart));
     setLoading(false);
@@ -55,7 +55,7 @@ const Payment = () => {
 
   const handlePayment = async () => {
     dispatch(clearAllPaymentCarts());
-    dispatch(clearUserData())
+    dispatch(clearUserData());
     try {
       if (finalCartItems.length > 0) {
         const username = finalCartItems[0].username;
@@ -108,7 +108,6 @@ const Payment = () => {
                   <h1 className="dark:text-white">
                     ${item?.quantity * item?.cost}
                   </h1>
-                  
                 </div>
               </li>
             ))

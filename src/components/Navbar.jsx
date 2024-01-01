@@ -27,7 +27,9 @@ const Navbar = () => {
 
   useEffect(() => {
     if (!savedUser) {
-      axios.get("/profile").then(({ data }) => setSavedUser(data));
+      axios
+        .get("/profile", { withCredentials: true })
+        .then(({ data }) => setSavedUser(data));
     }
   }, [savedUser]);
 
