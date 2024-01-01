@@ -15,9 +15,9 @@ import store from "./Redux/store";
 import CreateCards from "./pages/CreateCards";
 import Payment from "./pages/Payment";
 
-axios.defaults.baseURL = "https://customcardsbackend.azurewebsites.net";
+axios.defaults.baseURL = "http://localhost:8080";
 
-axios.defaults.withCredentials = false;
+axios.defaults.withCredentials = true;
 
 const App = () => {
   // Theme vars
