@@ -17,7 +17,7 @@ import Payment from "./pages/Payment";
 
 axios.defaults.baseURL = "https://customcardsbackend.azurewebsites.net";
 
-axios.defaults.withCredentials = true;
+axios.defaults.withCredentials = false;
 
 const App = () => {
   // Theme vars
