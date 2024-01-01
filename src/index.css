@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-.display-none {
-  @apply hidden;
+* {
+  -webkit-appearance: none;
+  box-sizing: border-box; /* Add this line to set consistent box-sizing */
 }
