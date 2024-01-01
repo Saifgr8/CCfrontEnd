@@ -32,7 +32,11 @@ const App = () => {
 
   // Initial theme
   const themeCheck = () => {
-    if (userTheme === "dark") {
+      const prefersDarkMode = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
+
+    if (userTheme === "dark" || prefersDarkMode) {
       document.documentElement.classList.add("dark");
       setMoonIconVisible(false);
       return;
