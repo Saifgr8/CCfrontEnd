@@ -22,8 +22,7 @@ axios.defaults.withCredentials = true;
 
 const App = () => {
   // Theme vars
-  const userTheme = localStorage.getItem("theme");
-
+  localStorage.setItem("color-theme", "light");
   // Theme toggle
   const iconToggle = () => {
     setMoonIconVisible((prev) => !prev);
@@ -33,15 +32,15 @@ const App = () => {
   // Initial theme
   const themeCheck = () => {
     if (
-      userTheme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
+      localStorage.getItem("color-theme") === "dark" &&
+      (!("color-theme" in localStorage) ||
+        !window.matchMedia("(prefers-color-scheme: dark)").matches)
     ) {
-      document.documentElement.classList.remove("dark");
+      document.documentElement.classList.add("dark");
       setMoonIconVisible(false);
     } else {
-      document.documentElement.classList.add("dark");
-      setSunIconVisible(false);
+      document.documentElement.classList.remove("dark");
+      setMoonIconVisible(false);
     }
   };
 
@@ -50,10 +49,10 @@ const App = () => {
     const htmlElement = document.documentElement;
     if (htmlElement.classList.contains("dark")) {
       htmlElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
+      localStorage.setItem("color-theme", "light");
     } else {
       htmlElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
+      localStorage.setItem("color-theme", "dark");
     }
     iconToggle();
   };
