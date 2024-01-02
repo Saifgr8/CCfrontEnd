@@ -41,6 +41,7 @@ const App = () => {
       setMoonIconVisible(false);
     } else {
       document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light"); // Set the theme to "light" in localStorage
       setSunIconVisible(false);
     }
   };
