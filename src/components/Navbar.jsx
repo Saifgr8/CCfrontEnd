@@ -213,7 +213,10 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <div onClick={handleLogout}>Logout</div>
+              <div onClick={handleLogout}>
+                Logout
+                <div className="badge">{savedUser?.userName}</div>
+              </div>
             </li>
           </ul>
         </div>
