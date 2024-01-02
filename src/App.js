@@ -37,11 +37,10 @@ const App = () => {
       (!("theme" in localStorage) &&
         window.matchMedia("(prefers-color-scheme: dark)").matches)
     ) {
-      document.documentElement.classList.add("dark");
+      document.documentElement.classList.remove("dark");
       setMoonIconVisible(false);
     } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light"); // Set the theme to "light" in localStorage
+      document.documentElement.classList.add("dark");
       setSunIconVisible(false);
     }
   };
